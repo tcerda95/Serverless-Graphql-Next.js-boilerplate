@@ -1,0 +1,40 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "Next.js frontend supported by Apollo and Emotion",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tcerdaITBA/Serverless-Graphql-Next.js-boilerplate.git"
+  },
+  "keywords": [
+    "next",
+    "nextjs",
+    "graphql",
+    "apollo",
+    "emotion",
+    "react"
+  ],
+  "author": "tcerdaITBA",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tcerdaITBA/Serverless-Graphql-Next.js-boilerplate/issues"
+  },
+  "homepage": "https://github.com/tcerdaITBA/Serverless-Graphql-Next.js-boilerplate#readme",
+  "dependencies": {
+    "@emotion/core": "^10.0.5",
+    "@emotion/styled": "^10.0.5",
+    "apollo-boost": "^0.1.23",
+    "graphql": "^14.0.2",
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "^7.0.2",
+    "react": "^16.7.0",
+    "react-apollo": "^2.3.3",
+    "react-dom": "^16.7.0"
+  }
+}
