@@ -1,0 +1,37 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Serverless GraphQL API supported by Apollo Server and mongoose",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "serverless offline start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tcerdaITBA/Serverless-Graphql-Next.js-boilerplate.git"
+  },
+  "keywords": [
+    "graphql",
+    "serverless",
+    "mongoose",
+    "mongodb",
+    "api"
+  ],
+  "author": "tcerdaITBA",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tcerdaITBA/Serverless-Graphql-Next.js-boilerplate/issues"
+  },
+  "homepage": "https://github.com/tcerdaITBA/Serverless-Graphql-Next.js-boilerplate#readme",
+  "dependencies": {
+    "apollo-server-lambda": "^2.3.1",
+    "graphql": "^14.0.2",
+    "graphql-import": "^0.7.1",
+    "mongoose": "^5.4.1"
+  },
+  "devDependencies": {
+    "serverless": "^1.35.1",
+    "serverless-offline": "^3.31.3"
+  }
+}
