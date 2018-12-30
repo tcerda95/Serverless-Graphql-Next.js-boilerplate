@@ -1,14 +1,23 @@
 type Post {
+  id: ID!
   title: String!
   content: String!
-  author: User
+  author: User!
 }
 
 type User {
+  id: ID!
   name: String!
   posts: [Post!]!
 }
 
 type Query {
   hello: String!
+  users: [User!]!
+  posts: [Post!]!
+}
+
+type Mutation {
+  user(name: String!): User!
+  post(title: String!, content: String!, author: ID!): Post!
 }
