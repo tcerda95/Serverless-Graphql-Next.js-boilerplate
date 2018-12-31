@@ -6,7 +6,7 @@ const { importSchema } = require('graphql-import');
 const { parse } = require('graphql');
 
 let db = null;
-const uri = 'mongodb://localhost:27017/GM-boilerplate';
+const dbUrl = process.env.DB_URL;
 const dbOptions = {
   promiseLibrary: Promise,
   useNewUrlParser: true,
@@ -44,7 +44,7 @@ const server = new ApolloServer({
     context.callbackWaitsForEmptyEventLoop = false;
 
     if (!db) {
-      db = await mongoose.createConnection(uri, dbOptions);
+      db = await mongoose.createConnection(dbUrl, dbOptions);
       console.log('Connected to database');
     }
 

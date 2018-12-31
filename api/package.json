@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "serverless offline start",
+    "deploy": "serverless deploy --stage prod",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

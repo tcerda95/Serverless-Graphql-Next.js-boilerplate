@@ -6,8 +6,9 @@ plugins:
 provider:
   name: aws
   runtime: nodejs8.10
-  region: sa-east-1
-  stage: dev
+  region: ${opt:region, 'sa-east-1'}
+  stage: ${opt:stage, 'dev'}
+  environment: ${file(.env.yml):${self:provider.stage}}
 
 custom:
   serverless-offline:
