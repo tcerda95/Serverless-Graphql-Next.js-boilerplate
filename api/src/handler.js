@@ -4,6 +4,7 @@ require('./model/Post');
 const { ApolloServer } = require('apollo-server-lambda');
 const { importSchema } = require('graphql-import');
 const { parse } = require('graphql');
+const logger = require('./utils/logger');
 
 let db = null;
 const dbUrl = process.env.DB_URL;
@@ -45,7 +46,7 @@ const server = new ApolloServer({
 
     if (!db) {
       db = await mongoose.createConnection(dbUrl, dbOptions);
-      console.log('Connected to database');
+      logger.info('Connected to database');
     }
 
     return {

@@ -29,7 +29,8 @@
     "apollo-server-lambda": "^2.3.1",
     "graphql": "^14.0.2",
     "graphql-import": "^0.7.1",
-    "mongoose": "^5.4.1"
+    "mongoose": "^5.4.1",
+    "winston": "^3.1.0"
   },
   "devDependencies": {
     "serverless": "^1.35.1",
