@@ -8,7 +8,8 @@ const userSchema = new Schema({
     trim: true
   }
 }, {
-  toJSON: { getters: true }
+  toJSON: { getters: true },
+  timestamps: true
 });
 
 const User = mongoose.models.User || mongoose.model('User', userSchema);

@@ -19,7 +19,8 @@ const postSchema = new Schema({
     ref: 'User'
   }
 }, {
-  toJSON: { getters : true }
+  toJSON: { getters : true },
+  timestamps: true
 });
 
 const Post = mongoose.models.Post || mongoose.model('Post', postSchema);

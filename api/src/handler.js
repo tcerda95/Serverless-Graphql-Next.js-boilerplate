@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
-require('./model/User');
-require('./model/Post');
+const { GraphQLDateTime } = require('graphql-iso-date');
 const { ApolloServer } = require('apollo-server-lambda');
 const { importSchema } = require('graphql-import');
 const { parse } = require('graphql');
 const logger = require('./utils/logger');
+
+require('./model/User');
+require('./model/Post');
 
 let db = null;
 const dbUrl = process.env.DB_URL;
@@ -33,7 +35,9 @@ const resolvers = {
 
   Post: {
     author: (parent, args, context) => context.User.findById(parent.author)
-  }
+  },
+
+  DateTime: GraphQLDateTime
 };
 
 const typeDefs = parse(importSchema(`${__dirname}/schema/schema.graphql`));
