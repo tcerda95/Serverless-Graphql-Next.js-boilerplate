@@ -3,7 +3,13 @@ const { GraphQLDateTime } = require('graphql-iso-date');
 const { ApolloServer } = require('apollo-server-lambda');
 const { importSchema } = require('graphql-import');
 const { parse } = require('graphql');
+
 const logger = require('./utils/logger');
+
+const Mutation = require('./resolvers/Mutation');
+const Query = require('./resolvers/Query');
+const Post = require('./resolvers/Post');
+const User = require('./resolvers/User');
 
 require('./model/User');
 require('./model/Post');
@@ -18,48 +24,35 @@ const dbOptions = {
 };
 
 const resolvers = {
-  Query: {
-    hello: () => 'Hello World!',
-    users: (parent, args, context) => context.User.find(),
-    posts: (parent, args, context) => context.Post.find()
-  },
-
-  Mutation: {
-    user: (parent, args, context) => context.User.create({ name: args.name }),
-    post: (parent, args, context) => context.Post.create({ title: args.title, content: args.content, author: args.author })
-  },
-
-  User: {
-    posts: (parent, args, context) => context.Post.find({ author: parent.id })
-  },
-
-  Post: {
-    author: (parent, args, context) => context.User.findById(parent.author)
-  },
-
+  Query,
+  Mutation,
+  User,
+  Post,
   DateTime: GraphQLDateTime
 };
 
 const typeDefs = parse(importSchema(`${__dirname}/schema/schema.graphql`));
 
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  context: async ({ event, context }) => {
-    context.callbackWaitsForEmptyEventLoop = false;
+const context = async ({ event, context }) => {
+  context.callbackWaitsForEmptyEventLoop = false;
 
-    if (!db) {
-      db = await mongoose.createConnection(dbUrl, dbOptions);
-      logger.info('Connected to database');
-    }
-
-    return {
-      db,
-      User: db.model('User'),
-      Post: db.model('Post'),
-      headers: event.headers
-    };
+  if (!db) {
+    db = await mongoose.createConnection(dbUrl, dbOptions);
+    logger.info('Connected to database');
   }
+
+  return {
+    db,
+    User: db.model('User'),
+    Post: db.model('Post'),
+    headers: event.headers
+  };
+};
+
+const server = new ApolloServer({
+  resolvers,
+  typeDefs,
+  context 
 });
 
 exports.graphqlHandler = server.createHandler();
