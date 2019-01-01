@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import Header from './Header';
 
 const Container = styled.main`
-  background-color: #FAFAFA;
   max-width: 800px;
+  margin: 0 auto;
 `;
 
 const Layout = ({ children }) => (

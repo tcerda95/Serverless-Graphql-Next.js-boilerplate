@@ -11,11 +11,8 @@ const Tab = styled.header`
 `;
 
 const Links = styled.ul`
-  list-style-type: none;
   display: flex;
   justify-content: space-between;
-  margin: 0;
-  padding: 0;
   width: 30%;
   max-width: 600px;
 `;
