@@ -1,23 +1,36 @@
+import gql from 'graphql-tag';
+import { Query } from 'react-apollo';
 import Layout from '../components/Layout';
 import PostList from '../components/PostList';
 
-const posts = [
-  {
-    title: 'My first post!',
-    content: 'This is my first post and I am pretty proud about it!',
-    author: { name: 'Tomás Cerdá' },
-    id: 1
-  },
-  {
-    title: 'My first post!',
-    content: 'This is my first post and I am pretty proud about it!',
-    author: { name: 'Tomás Cerdá' },
-    id: 2
-  }
-];
-
 export default () => (
   <Layout>
-    <PostList posts={posts} />
+    <Query query={POSTS}>
+      {QueriedPostList}
+    </Query>
   </Layout>
 );
+
+const QueriedPostList = ({ data, loading, error }) => {
+  if (loading)
+    return <h1>Loading...</h1>;
+
+  if (error)
+    return <h1>Error</h1>;
+
+  return <PostList posts={data.posts} />
+};
+
+const POSTS = gql`
+  query {
+    posts {
+      id
+      title
+      content
+
+      author {
+        name
+      }
+    }
+  }
+`;

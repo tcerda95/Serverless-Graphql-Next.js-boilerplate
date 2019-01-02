@@ -9,7 +9,7 @@ const Title = styled.h1`
 const Item = styled(ContainerItem)`
   margin-top: 5px;
   
-  &:first-child {
+  &:first-of-type {
     margin-top: 0
   }
 `;
@@ -19,8 +19,8 @@ const PostList = ({ posts }) => (
     <Title>Posts</Title>
     <ul>
       {posts.map(p => (
-        <Item as="li">
-          <PostItem key={p.id} post={p} />
+        <Item key={p.id} as="li">
+          <PostItem post={p} />
         </Item>
       ))}
     </ul>
