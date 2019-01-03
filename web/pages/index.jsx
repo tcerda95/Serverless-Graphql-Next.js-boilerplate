@@ -1,15 +1,21 @@
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
+import auth from '../lib/auth';
 import Layout from '../components/Layout';
 import PostList from '../components/PostList';
 
-export default () => (
-  <Layout>
+const Index = () => (
+  <Layout title="Posts">
     <Query query={POSTS}>
       {QueriedPostList}
     </Query>
   </Layout>
 );
+
+Index.getInitialProps = async context => {
+  const user = auth.loggedUser(context);
+  return { user };
+};
 
 const QueriedPostList = ({ data, loading, error }) => {
   if (loading)
@@ -34,3 +40,5 @@ const POSTS = gql`
     }
   }
 `;
+
+export default Index;

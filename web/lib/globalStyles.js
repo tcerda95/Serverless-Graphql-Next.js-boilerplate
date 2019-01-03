@@ -27,21 +27,6 @@ export default css`
     text-decoration: none;
   }
 
-  button {
-    align-items: center;
-    background-color: #22BAD9;
-    border: 0;
-    color: white;
-    display: flex;
-    padding: 5px 7px;
-    transition: background-color .3s;
-  }
-
-  button:active {
-    background-color: #1B9DB7;
-    transition: background-color .3s;
-  }
-
   button:focus {
     outline: none
   }
