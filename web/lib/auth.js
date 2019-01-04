@@ -7,7 +7,14 @@ class Authentication {
   }
 
   loggedUser(context) {
-    return JSON.parse(nextCookies(context).user);
+    if (this.isLogged(context))
+      return JSON.parse(nextCookies(context).user);
+
+    return null;
+  }
+
+  isLogged(context) {
+    return !!nextCookies(context).user;
   }
 }
 
