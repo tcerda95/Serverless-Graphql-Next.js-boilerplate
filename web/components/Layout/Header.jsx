@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { withRouter } from 'next/router';
 import { Tab, Links, LinkItem, A } from './styles';
+import { withUser } from '../../lib/auth';
 
 const NextLink = ({ href, children, currentPathname }) => (
   <LinkItem>
@@ -10,17 +11,19 @@ const NextLink = ({ href, children, currentPathname }) => (
   </LinkItem>
 );
 
-const Header = ({ router }) => {
+const Header = ({ router, user }) => {
   const { pathname } = router;
+  const sign = user ? { href: '/signout', text: 'Sign out' } : { href: '/signin', text: 'Sign in' };
 
   return (
     <Tab>
       <Links>
         <NextLink href="/" currentPathname={pathname}>Posts</NextLink>
-        <NextLink href="/signin" currentPathname={pathname}>Sign in</NextLink>
+        {user && <NextLink href="/newpost" currentPathname={pathname}>New post</NextLink>}
+        <NextLink href={sign.href} currentPathname={pathname}>{sign.text}</NextLink>
       </Links>
     </Tab>
   );
 };
 
-export default withRouter(Header);
+export default withRouter(withUser(Header));

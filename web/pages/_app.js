@@ -6,17 +6,20 @@ import { ThemeProvider } from 'emotion-theming';
 import withApollo from '../lib/withApollo';
 import theme from '../lib/theme';
 import globalStyles from '../lib/globalStyles';
+import { withUserApp, UserProvider } from '../lib/auth';
 
 class MyApp extends App {
   render () {
-    const { Component, pageProps, apollo } = this.props;
+    const { Component, pageProps, user, apollo } = this.props;
 
     return (
       <Container>
         <Global styles={globalStyles} />
         <ThemeProvider theme={theme}>
           <ApolloProvider client={apollo}>
-            <Component {...pageProps} />
+            <UserProvider user={user}>
+              <Component {...pageProps} />
+            </UserProvider>
           </ApolloProvider>
         </ThemeProvider>
       </Container>
@@ -24,4 +27,4 @@ class MyApp extends App {
   }
 }
 
-export default withApollo(MyApp);
+export default withApollo(withUserApp(MyApp));

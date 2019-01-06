@@ -13,7 +13,7 @@ const Index = () => (
 );
 
 Index.getInitialProps = async context => {
-  const user = auth.loggedUser(context);
+  const { user } = context;
   return { user };
 };
 
