@@ -8,9 +8,14 @@ class Authentication {
     jsCookie.set('user', user, { expires: 1 });
   }
 
+  signOut() {
+    jsCookie.remove('user');
+  }
+
   loggedUser(context) {
-    if (this.isLogged(context))
+    if (this.isLogged(context)) {
       return JSON.parse(nextCookies(context).user);
+    }
 
     return null;
   }
