@@ -27,4 +27,4 @@ class MyApp extends App {
   }
 }
 
-export default withApollo(withUserApp(MyApp));
+export default withUserApp(withApollo(MyApp));

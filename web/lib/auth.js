@@ -13,7 +13,7 @@ class Authentication {
     jsCookie.remove('token');
   }
 
-  loggedUser(context) {
+  loggedUser(context = {}) {
     if (this.isLogged(context)) {
       return JSON.parse(nextCookies(context).user);
     }
@@ -21,11 +21,11 @@ class Authentication {
     return null;
   }
 
-  isLogged(context) {
+  isLogged(context = {}) {
     return !!nextCookies(context).user;
   }
 
-  token(context) {
+  token(context = {}) {
     if (this.isLogged(context)) {
       return nextCookies(context).token;
     }
@@ -45,11 +45,14 @@ export const withUserApp = App => {
       const user = auth.loggedUser(ctx);
       ctx.user = user;
 
+      const token = auth.token(ctx);
+      ctx.token = token;
+
       if (App.getInitialProps) {
         appProps = await App.getInitialProps(appCtx);
       }
 
-      return { ...appProps, user };    
+      return { ...appProps, user, token };    
     }
 
     render() {
