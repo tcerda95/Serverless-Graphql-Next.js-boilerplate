@@ -6,19 +6,14 @@ import PostList from '../components/PostList';
 
 const Index = () => (
   <Layout title="Posts">
-    <Query query={POSTS}>
+    <Query query={POSTS} fetchPolicy="cache-and-network">
       {QueriedPostList}
     </Query>
   </Layout>
 );
 
-Index.getInitialProps = async context => {
-  const { user } = context;
-  return { user };
-};
-
 const QueriedPostList = ({ data, loading, error }) => {
-  if (loading)
+  if (loading && !data)
     return <h1>Loading...</h1>;
 
   if (error)
@@ -33,7 +28,6 @@ const POSTS = gql`
       id
       title
       content
-
       author {
         name
       }
