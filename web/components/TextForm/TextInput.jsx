@@ -27,9 +27,9 @@ const Tooltip = styled.small`
   margin-top: 5px;
 `;
 
-const TextInput = ({ name, tooltip, className = '', ...props }) => (
+const TextInput = ({ name, label, tooltip, className = '', ...props }) => (
   <Container className={className}>
-    <Label htmlFor={name}>{name}</Label>
+    <Label htmlFor={name}>{label}</Label>
     <Input id={name} name={name} {...props} />
     {tooltip && <Tooltip>{tooltip}</Tooltip>}
   </Container>

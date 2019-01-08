@@ -27,7 +27,7 @@ const SubmitButton = styled.button`
   }
 `;
 
-export default class SignIn extends Component {
+export default class TextForm extends Component {
   handleSubmit = e => {
     const { onSubmit, value } = this.props;
     e.preventDefault();
@@ -36,20 +36,36 @@ export default class SignIn extends Component {
   }
 
   handleChange = e => {
-    const { onChange } = this.props;
-    const name = e.target.value;
+    const { onChange, value } = this.props;
+    const inputName = e.target.name;
+    const inputValue = e.target.value;
 
-    onChange(name);
+    const newValue = { ...value }; // clone props value to guarantee immutability
+
+    newValue[inputName] = inputValue;
+
+    onChange(newValue);
+  }
+
+  // Assumes every field is required
+  disabled = () => {
+    const { value, submitting } = this.props;
+
+    if (submitting)
+      return true;
+
+    const values = Object.values(value);
+
+    return values.some(v => v.length === 0);
   }
 
   render() {
-    const { value, submitting } = this.props;
-    const disabled = value.length === 0 || submitting;
+    const { value, submitting, submitText, fields } = this.props;
 
     return (
       <ContainerItem as="form" onSubmit={this.handleSubmit}>
-        <TextInput onChange={this.handleChange} name="Name" value={value} tooltip="No sign up required! Just choose a name" />
-        <SubmitButton disabled={disabled}>{submitting ? 'Signing in...' : 'Sign in'}</SubmitButton>
+        {fields.map(f => <TextInput key={f.name} value={value[f.name]} onChange={this.handleChange} {...f} />)}
+        <SubmitButton disabled={this.disabled()}>{submitting ? submitText.submitting : submitText.submit}</SubmitButton>
       </ContainerItem>
     );
   }

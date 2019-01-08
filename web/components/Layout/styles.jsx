@@ -11,7 +11,7 @@ export const Tab = styled.header`
 export const Links = styled.ul`
   display: flex;
   justify-content: space-between;
-  width: 30%;
+  width: 50%;
   max-width: 600px;
 `;
 

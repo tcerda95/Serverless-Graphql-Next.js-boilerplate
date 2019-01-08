@@ -24,14 +24,15 @@ class Header extends Component {
   render() {
     const { user } = this.props;
     const { NextLink } = this;
-    const sign = user ? { href: '/', label: 'Sign out', onClick: this.signOut, inactive: true } : { href: '/signin', label: 'Sign in' };
+    const midLink = user ? { href: '/newpost', label: 'New post' } : { href: '/signup', label: 'Sign up' };
+    const rightLink = user ? { href: '/', label: 'Sign out', onClick: this.signOut, inactive: true } : { href: '/signin', label: 'Sign in' };
 
     return (
       <Tab>
         <Links>
           <NextLink href="/" label="Posts" />
-          {user && <NextLink href="/newpost" label="New post" />}
-          <NextLink href={sign.href} label={sign.label} inactive={sign.inactive} onClick={sign.onClick} />
+          <NextLink href={midLink.href} label={midLink.label} />
+          <NextLink href={rightLink.href} label={rightLink.label} inactive={rightLink.inactive} onClick={rightLink.onClick} />
         </Links>
       </Tab>
     );

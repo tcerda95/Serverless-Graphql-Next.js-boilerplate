@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import jsCookie from 'js-cookie';
 import nextCookies from 'next-cookies';
-import hoistNonReactStatic from 'hoist-non-react-statics';
 
 class Authentication {
-  signIn(user) {
+  signIn(user, token) {
     jsCookie.set('user', user, { expires: 1 });
+    jsCookie.set('token', token, { expires: 1 });
   }
 
   signOut() {
     jsCookie.remove('user');
+    jsCookie.remove('token');
   }
 
   loggedUser(context) {
@@ -22,6 +23,14 @@ class Authentication {
 
   isLogged(context) {
     return !!nextCookies(context).user;
+  }
+
+  token(context) {
+    if (this.isLogged(context)) {
+      return nextCookies(context).token;
+    }
+
+    return null;
   }
 }
 
