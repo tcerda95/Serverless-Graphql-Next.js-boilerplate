@@ -1,3 +1,5 @@
+directive @isAuthenticated on FIELD | FIELD_DEFINITION
+
 scalar DateTime
 
 type Post {
@@ -15,6 +17,11 @@ type User {
   createdAt: DateTime!
 }
 
+type AuthPayload {
+  user: User!
+  token: String!
+}
+
 type Query {
   hello: String!
   user(id: ID!): User
@@ -23,6 +30,7 @@ type Query {
 }
 
 type Mutation {
-  user(name: String!): User!
-  post(title: String!, content: String!, author: ID!): Post!
+  signUp(name: String!, password: String!): AuthPayload!
+  signIn(name: String!, password: String!): AuthPayload!
+  post(title: String!, content: String!): Post! @isAuthenticated
 }

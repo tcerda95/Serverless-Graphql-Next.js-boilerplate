@@ -27,10 +27,14 @@
   "homepage": "https://github.com/tcerdaITBA/Serverless-Graphql-Next.js-boilerplate#readme",
   "dependencies": {
     "apollo-server-lambda": "^2.3.1",
+    "bcryptjs": "^2.4.3",
     "graphql": "^14.0.2",
+    "graphql-directive-auth": "^0.2.21",
     "graphql-import": "^0.7.1",
     "graphql-iso-date": "^3.6.1",
+    "jsonwebtoken": "^8.4.0",
     "mongoose": "^5.4.1",
+    "mongoose-unique-validator": "^2.0.2",
     "winston": "^3.1.0"
   },
   "devDependencies": {

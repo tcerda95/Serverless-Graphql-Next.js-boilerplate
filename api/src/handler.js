@@ -3,8 +3,10 @@ const { GraphQLDateTime } = require('graphql-iso-date');
 const { ApolloServer } = require('apollo-server-lambda');
 const { importSchema } = require('graphql-import');
 const { parse } = require('graphql');
+const AuthDirective = require('graphql-directive-auth').default;
 
 const logger = require('./utils/logger');
+const auth = require('./utils/auth');
 
 const Mutation = require('./resolvers/Mutation');
 const Query = require('./resolvers/Query');
@@ -49,10 +51,19 @@ const context = async ({ event, context }) => {
   };
 };
 
+const authDirective = AuthDirective({
+  authenticateFunc: context => auth.getUser(context.headers)
+});
+
+const schemaDirectives = {
+  isAuthenticated: authDirective.isAuthenticated
+};
+
 const server = new ApolloServer({
   resolvers,
   typeDefs,
-  context 
+  context,
+  schemaDirectives
 });
 
 exports.graphqlHandler = server.createHandler();
