@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import styled from '@emotion/styled';
+import Post from '../PropTypes/Post';
 
 const Title = styled.h2`
   font-size: 24px;
@@ -22,10 +23,17 @@ const PostItem = ({ post }) => {
   return (
     <Fragment>
       <Title>{title}</Title>
-      <Tip>made by {author.name}</Tip>
+      <Tip>
+        made by
+        {author.name}
+      </Tip>
       <Content>{content}</Content>
     </Fragment>
   );
+};
+
+PostItem.propTypes = {
+  post: Post.isRequired
 };
 
 export default PostItem;

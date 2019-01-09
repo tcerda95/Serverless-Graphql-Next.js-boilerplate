@@ -2,7 +2,8 @@ import { css } from '@emotion/core';
 
 export default css`
   * {
-    font-family: Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
+    font-family: Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono',
+      'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
     box-sizing: border-box;
     color: #000c;
   }
@@ -18,16 +19,16 @@ export default css`
   }
 
   body {
-    background-color: #FAFAFA;
+    background-color: #fafafa;
     margin: 0;
   }
 
   a {
-    color: #22BAD9;
+    color: #22bad9;
     text-decoration: none;
   }
 
   button:focus {
-    outline: none
+    outline: none;
   }
 `;

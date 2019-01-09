@@ -2,7 +2,6 @@ import { Component } from 'react';
 import Router from 'next/router';
 import gql from 'graphql-tag';
 import { Mutation } from 'react-apollo';
-import { POSTS } from './index';
 import Layout from '../components/Layout';
 import TextForm from '../components/TextForm';
 
@@ -10,39 +9,39 @@ export default class NewPost extends Component {
   state = {
     title: '',
     content: ''
-  }
+  };
 
   fields = [
-    { 
+    {
       label: 'Title',
       name: 'title',
       type: 'text',
       tooltip: 'Catchy!',
       required: true
     },
-    { 
+    {
       label: 'Content',
       name: 'content',
       type: 'text',
       required: true
     }
-  ]
+  ];
 
   submitText = {
     submit: 'Post',
     submitting: 'Posting...'
-  }
+  };
 
   handleComplete = () => {
     Router.push('/');
-  }
+  };
 
   handleChange = value => {
     this.setState(value);
-  }
+  };
 
   MutatedPost = (post, { loading }) => (
-    <TextForm 
+    <TextForm
       value={this.state}
       fields={this.fields}
       onChange={this.handleChange}
@@ -50,7 +49,7 @@ export default class NewPost extends Component {
       submitText={this.submitText}
       submitting={loading}
     />
-  )
+  );
 
   render() {
     return (

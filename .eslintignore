@@ -1,0 +1,4 @@
+.serverless
+.next
+out
+node_modules

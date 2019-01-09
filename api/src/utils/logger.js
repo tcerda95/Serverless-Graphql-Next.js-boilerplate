@@ -1,4 +1,5 @@
 const winston = require('winston');
+
 const { combine, timestamp, splat, simple, printf, colorize } = winston.format;
 
 winston.configure({
@@ -8,7 +9,7 @@ winston.configure({
     splat(),
     simple(),
     printf(info => `${info.timestamp} [${info.level}]: ${info.message}`)
-  ),  
+  ),
   level: process.env.LOG_LEVEL,
   transports: [new winston.transports.Console()]
 });

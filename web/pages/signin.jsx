@@ -10,38 +10,38 @@ export default class SignIn extends Component {
   state = {
     name: '',
     password: ''
-  }
+  };
 
   fields = [
-    { 
-      label: 'Name', 
-      name: 'name', 
-      type: 'text' 
+    {
+      label: 'Name',
+      name: 'name',
+      type: 'text'
     },
-    { 
-      label: 'Password', 
-      name: 'password', 
-      type: 'password' 
+    {
+      label: 'Password',
+      name: 'password',
+      type: 'password'
     }
-  ]
+  ];
 
   submitText = {
     submit: 'Sign in',
     submitting: 'Signing in...'
-  }
+  };
 
   handleComplete = ({ signIn }) => {
     const { user, token } = signIn;
     auth.signIn(user, token);
     Router.push('/');
-  }
+  };
 
   handleChange = value => {
     this.setState(value);
-  }
+  };
 
   MutatedSignIn = (signIn, { loading }) => (
-    <TextForm 
+    <TextForm
       value={this.state}
       fields={this.fields}
       onChange={this.handleChange}
@@ -49,7 +49,7 @@ export default class SignIn extends Component {
       submitText={this.submitText}
       submitting={loading}
     />
-  )
+  );
 
   render() {
     return (

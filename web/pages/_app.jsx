@@ -9,7 +9,7 @@ import globalStyles from '../lib/globalStyles';
 import { withUserApp, UserProvider } from '../lib/auth';
 
 class MyApp extends App {
-  render () {
+  render() {
     const { Component, pageProps, user, apollo } = this.props;
 
     return (
@@ -23,7 +23,7 @@ class MyApp extends App {
           </ApolloProvider>
         </ThemeProvider>
       </Container>
-    )
+    );
   }
 }
 

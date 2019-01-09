@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 
 const Container = styled.div`
@@ -27,12 +28,24 @@ const Tooltip = styled.small`
   margin-top: 5px;
 `;
 
-const TextInput = ({ name, label, tooltip, className = '', ...props }) => (
+const TextInput = ({ name, label, tooltip, className, ...props }) => (
   <Container className={className}>
     <Label htmlFor={name}>{label}</Label>
     <Input id={name} name={name} {...props} />
     {tooltip && <Tooltip>{tooltip}</Tooltip>}
   </Container>
 );
+
+TextInput.propTypes = {
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  tooltip: PropTypes.string,
+  className: PropTypes.string
+};
+
+TextInput.defaultProps = {
+  tooltip: '',
+  className: ''
+};
 
 export default TextInput;

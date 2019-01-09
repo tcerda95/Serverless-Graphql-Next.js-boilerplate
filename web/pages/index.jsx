@@ -1,6 +1,5 @@
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
-import auth from '../lib/auth';
 import Layout from '../components/Layout';
 import PostList from '../components/PostList';
 
@@ -13,13 +12,15 @@ const Index = () => (
 );
 
 const QueriedPostList = ({ data, loading, error }) => {
-  if (loading && !data)
+  if (loading && !data) {
     return <h1>Loading...</h1>;
+  }
 
-  if (error)
+  if (error) {
     return <h1>Error</h1>;
+  }
 
-  return <PostList posts={data.posts} />
+  return <PostList posts={data.posts} />;
 };
 
 const POSTS = gql`

@@ -36,8 +36,8 @@ class Authentication {
 
 const auth = new Authentication();
 
-export const withUserApp = App => {
-  return class extends Component {
+export const withUserApp = App =>
+  class extends Component {
     static async getInitialProps(appCtx) {
       const { ctx } = appCtx;
       let appProps = {};
@@ -52,32 +52,23 @@ export const withUserApp = App => {
         appProps = await App.getInitialProps(appCtx);
       }
 
-      return { ...appProps, user, token };    
+      return { ...appProps, user, token };
     }
 
     render() {
       return <App {...this.props} />;
     }
-  }
-}
-  
+  };
+
 const UserContext = React.createContext(null);
 
-export class UserProvider extends Component {
-  render() {
-    const { user, children } = this.props;
-
-    return (
-      <UserContext.Provider value={user}>
-        {children}
-      </UserContext.Provider>
-    );
-  }
-};
+export const UserProvider = ({ user, children }) => (
+  <UserContext.Provider value={user}>{children}</UserContext.Provider>
+);
 
 export const withUser = WrappedComponent => props => (
   <UserContext.Consumer>
-    {user => <WrappedComponent user={user} {...props}/>}
+    {user => <WrappedComponent user={user} {...props} />}
   </UserContext.Consumer>
 );
 

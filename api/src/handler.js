@@ -30,12 +30,12 @@ const resolvers = {
   Mutation,
   User,
   Post,
-  DateTime: GraphQLDateTime
+  DateTime: GraphQLDateTime
 };
 
 const typeDefs = parse(importSchema(`${__dirname}/schema/schema.graphql`));
 
-const context = async ({ event, context }) => {
+const myContext = async ({ event, context }) => {
   context.callbackWaitsForEmptyEventLoop = false;
 
   if (!db) {
@@ -62,7 +62,7 @@ const schemaDirectives = {
 const server = new ApolloServer({
   resolvers,
   typeDefs,
-  context,
+  context: myContext,
   schemaDirectives
 });
 

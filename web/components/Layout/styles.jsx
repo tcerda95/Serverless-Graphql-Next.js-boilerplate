@@ -20,10 +20,12 @@ export const LinkItem = styled.li`
   height: 100%;
 `;
 
-export const A = styled.a(props => `
+export const A = styled.a(
+  props => `
   font-size: 18px;
   font-weight: 600;
   color: ${props.theme.colors.secondary};
   cursor: ${props.active ? 'default' : 'pointer'};
   text-decoration: ${props.active ? 'underline' : 'none'};
-`);
+`
+);

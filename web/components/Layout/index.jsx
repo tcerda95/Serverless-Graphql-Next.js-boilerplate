@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import Header from './Header';
 import Head from 'next/head';
+import Header from './Header';
 
 const Container = styled.main`
   max-width: 800px;
@@ -23,5 +24,10 @@ const Layout = ({ children, title }) => (
     </Container>
   </div>
 );
+
+Layout.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired
+};
 
 export default Layout;

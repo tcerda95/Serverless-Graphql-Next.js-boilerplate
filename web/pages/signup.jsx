@@ -10,42 +10,42 @@ export default class SignUp extends Component {
   state = {
     name: '',
     password: ''
-  }
+  };
 
   fields = [
-    { 
+    {
       label: 'Name',
       name: 'name',
       type: 'text',
       tooltip: 'Something cool and original',
       required: true
     },
-    { 
+    {
       label: 'Password',
       name: 'password',
       type: 'password',
       tooltip: 'Something you can remember',
       required: true
     }
-  ]
+  ];
 
   submitText = {
     submit: 'Sign up',
     submitting: 'Signing up...'
-  }
+  };
 
   handleComplete = ({ signUp }) => {
     const { user, token } = signUp;
     auth.signIn(user, token);
     Router.push('/');
-  }
+  };
 
   handleChange = value => {
     this.setState(value);
-  }
+  };
 
   MutatedSignUp = (signUp, { loading }) => (
-    <TextForm 
+    <TextForm
       value={this.state}
       fields={this.fields}
       onChange={this.handleChange}
@@ -53,7 +53,7 @@ export default class SignUp extends Component {
       submitText={this.submitText}
       submitting={loading}
     />
-  )
+  );
 
   render() {
     return (
