@@ -5,14 +5,15 @@ import auth from './auth';
 export default withApollo(
   ({ ctx, headers, initialState }) =>
     new ApolloClient({
-      uri: 'http://localhost:4000/',
+      uri: process.env.API_URL, // see env-config.js
       cache: new InMemoryCache().restore(initialState || {}),
-      request: operation =>
+      request: operation => {
         operation.setContext({
           headers: {
             ...headers,
             Authorization: auth.isLogged(ctx) ? `Bearer ${auth.token(ctx)}` : ''
           }
-        })
+        });
+      }
     })
 );

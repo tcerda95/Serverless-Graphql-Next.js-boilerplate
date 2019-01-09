@@ -23,10 +23,7 @@ const PostItem = ({ post }) => {
   return (
     <Fragment>
       <Title>{title}</Title>
-      <Tip>
-        made by
-        {author.name}
-      </Tip>
+      <Tip>made by {author.name}</Tip>
       <Content>{content}</Content>
     </Fragment>
   );

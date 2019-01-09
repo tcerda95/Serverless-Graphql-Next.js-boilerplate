@@ -66,4 +66,9 @@ const server = new ApolloServer({
   schemaDirectives
 });
 
-exports.graphqlHandler = server.createHandler();
+exports.graphqlHandler = server.createHandler({
+  cors: {
+    origin: true,
+    credentials: true
+  }
+});
