@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import Head from 'next/head';
 import Header from './Header';
 

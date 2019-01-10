@@ -1,11 +1,8 @@
 import App, { Container } from 'next/app';
 import React from 'react';
 import { ApolloProvider } from 'react-apollo';
-import { Global } from '@emotion/core';
-import { ThemeProvider } from 'emotion-theming';
 import withApollo from '../lib/withApollo';
-import theme from '../lib/theme';
-import globalStyles from '../lib/globalStyles';
+import GlobalStyle from '../lib/GlobalStyle';
 import { withUserApp, UserProvider } from '../lib/auth';
 
 class MyApp extends App {
@@ -14,14 +11,12 @@ class MyApp extends App {
 
     return (
       <Container>
-        <Global styles={globalStyles} />
-        <ThemeProvider theme={theme}>
-          <ApolloProvider client={apollo}>
-            <UserProvider user={user}>
-              <Component {...pageProps} />
-            </UserProvider>
-          </ApolloProvider>
-        </ThemeProvider>
+        <GlobalStyle />
+        <ApolloProvider client={apollo}>
+          <UserProvider user={user}>
+            <Component {...pageProps} />
+          </UserProvider>
+        </ApolloProvider>
       </Container>
     );
   }

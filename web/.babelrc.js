@@ -2,5 +2,5 @@ const env = require('./env-config.js');
 
 module.exports = {
   presets: ['next/babel'],
-  plugins: [['emotion'], ['transform-define', env]]
+  plugins: [['styled-components', { 'ssr': true }], ['transform-define', env]]
 };

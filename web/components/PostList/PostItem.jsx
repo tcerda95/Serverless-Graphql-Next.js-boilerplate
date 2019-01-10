@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import Post from '../PropTypes/Post';
 
 const Title = styled.h2`

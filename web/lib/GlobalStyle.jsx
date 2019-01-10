@@ -1,6 +1,6 @@
-import { css } from '@emotion/core';
+import { createGlobalStyle } from 'styled-components';
 
-export default css`
+export default createGlobalStyle`
   * {
     font-family: Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono',
       'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;

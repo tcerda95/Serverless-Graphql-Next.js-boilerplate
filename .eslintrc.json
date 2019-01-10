@@ -23,6 +23,8 @@
     "react/react-in-jsx-scope": 0,
     "react/destructuring-assignment": ["error", "always", { "ignoreClassFields": true }],
     "react/jsx-uses-vars": [2],
+    "no-unused-vars": ["error", { "args": "after-used" }],
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
     "react/no-unused-state": 0,
     "react/forbid-prop-types": 0,
     "react/no-multi-comp": 0,

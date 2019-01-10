@@ -1,7 +1,7 @@
 const theme = {
   colors: {
-    primary: '#2F80EDE6',
-    secondary: '#F9992DE6'
+    primary: '#2F80ED',
+    secondary: '#F9992D'
   },
 
   hovers: {
