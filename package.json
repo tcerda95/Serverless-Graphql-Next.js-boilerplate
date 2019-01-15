@@ -23,7 +23,7 @@
     "nextjs",
     "graphql",
     "apollo",
-    "emotion",
+    "styled-components",
     "react",
     "serverless",
     "mongoose",

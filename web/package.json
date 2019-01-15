@@ -1,7 +1,7 @@
 {
   "name": "web",
   "version": "1.0.0",
-  "description": "Next.js frontend supported by Apollo and Emotion",
+  "description": "Next.js frontend supported by Apollo and styled-components",
   "main": "index.js",
   "scripts": {
     "dev": "next",
@@ -18,7 +18,7 @@
     "nextjs",
     "graphql",
     "apollo",
-    "emotion",
+    "styled-components",
     "react"
   ],
   "author": "tcerdaITBA",
@@ -34,7 +34,6 @@
     "apollo-link-context": "^1.0.12",
     "apollo-link-error": "^1.1.5",
     "apollo-link-http": "^1.5.9",
-    "babel-plugin-emotion": "^10.0.5",
     "babel-plugin-styled-components": "^1.8.0",
     "babel-plugin-transform-define": "^1.3.1",
     "graphql": "^14.0.2",

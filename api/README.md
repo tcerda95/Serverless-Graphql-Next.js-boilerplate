@@ -1,5 +1,13 @@
 # Serverless GraphQL API
 
+## Quick start
+
+`npm install`
+
+Development: `npm start`
+
+Deployment: `npm run deploy`
+
 ## Serverless Framework
 
 * Install: `npm install -g serverless`
@@ -27,12 +35,6 @@ Set up production and development environment variables and read them as `proces
 You may read an specific environment variable into `serverless.yml` as: `${file(.env.yml):${self:provider.stage}.ENV_VAR}`
 
 To set an specific stage when launching the lambda, pass the `--stage <STAGE>` property to `serverless` command.
-
-## Scripts
-
-Development: `npm start` This will launch a GraphQL server to http://localhost:4000
-
-Deploy: `npm run deploy` This will deploy to the AWS Lambda service as configured in `serverless.yml`
 
 ## Authentication
 
