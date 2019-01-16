@@ -24,6 +24,8 @@ The user may be retrieved by the `withUser` HOC ([See Header.jsx](components/Lay
 
 The user can sign in via `auth.signIn(user, token)` and the properties may be retrieved by `auth.loggedUser()` and `auth.token()`.
 
+Finally, the authentication Bearer token is sent on each graphQL request. [See lib/withApollo.js](lib/withApollo.js).
+
 ## Environment variables
 
 Environment variables are set by `env-config.js`. Since they are stringified by Babel it is not appropiate to set this file private since client code source can be inspected by any browser. Therefore private credentials should not be set in `env-config.js`.
@@ -40,4 +42,6 @@ Deploy with `now`.
 
 ## Idea behind the example
 
-The example represents a simple bloggin webapp.
+The example represents a simple blog webapp. Users may sign up and sign in. Only signed in users are allowed to write a post.
+
+Posts are server side rendered on the main page.
