@@ -2,6 +2,9 @@
   "version": 2,
   "name": "GMN-boilerplate",
   "builds": [
-    { "src": "package.json", "use": "@now/next" }
+    { "src": "next.config.js", "use": "@now/next" }
+  ],
+  "routes": [
+    { "src": "/_next/static/(?:[^/]+/pages|chunks|runtime)/.+", "headers": { "cache-control": "immutable" } }
   ]
 }

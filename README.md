@@ -21,6 +21,6 @@ It includes:
 * Next.js web server
 * Authentication HOCs and user injected via context
 * Authentication Bearer token is sent on each request
-* CSS-in-JS with styled-components
+* CSS-in-JS with emotion
 * Environment variables setup
 * Ready for Zeit now 2.0 serverless deployment

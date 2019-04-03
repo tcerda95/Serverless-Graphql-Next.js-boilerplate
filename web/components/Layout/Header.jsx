@@ -14,12 +14,12 @@ class Header extends Component {
     user: null
   };
 
-  NextLink = ({ href, label, inactive, onClick = () => {} }) => {
+  NextLink = ({ href, label, inactive, prefetch = true, onClick = () => {} }) => {
     const { pathname } = this.props.router;
 
     return (
       <LinkItem>
-        <Link prefetch href={href}>
+        <Link prefetch={prefetch} href={href}>
           <A active={!inactive && href === pathname} onClick={onClick}>
             {label}
           </A>

@@ -1,8 +1,7 @@
-import styled from 'styled-components';
-import theme from '../../lib/theme';
+import styled from '@emotion/styled';
 
 export const Tab = styled.header`
-  background-color: ${theme.colors.primary};
+  background-color: ${props => props.theme.colors.primary};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +24,7 @@ export const A = styled.a(
   props => `
   font-size: 18px;
   font-weight: 600;
-  color: ${theme.colors.secondary};
+  color: ${props.theme.colors.secondary};
   cursor: ${props.active ? 'default' : 'pointer'};
   text-decoration: ${props.active ? 'underline' : 'none'};
 `

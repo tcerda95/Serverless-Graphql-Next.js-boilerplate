@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types';
 import { Component } from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import ContainerItem from '../ContainerItem';
 import TextInput from './TextInput';
-import theme from '../../lib/theme';
 
 const SubmitButton = styled.button`
   align-items: center;
-  background-color: ${theme.colors.primary};
+  background-color: ${props => props.theme.colors.primary};
   border: 0;
   color: white;
   display: flex;
@@ -16,7 +15,7 @@ const SubmitButton = styled.button`
   font-size: 0.9em;
 
   &:hover {
-    background-color: ${theme.hovers.primary};
+    background-color: ${props => props.theme.hovers.primary};
   }
 
   &:focus {

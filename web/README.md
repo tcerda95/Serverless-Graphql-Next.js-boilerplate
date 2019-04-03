@@ -14,9 +14,9 @@ Both the [Query](https://www.apollographql.com/docs/react/essentials/queries.htm
 
 ## CSS-in-JS
 
-[styled-components](https://www.styled-components.com/) is used as a CSS-in-JS library.
+[emotion](https://www.styled-components.com/) is used as a CSS-in-JS library.
 
-Global styles may be configured via [lib/GlobalStyle.jsx](lib/GlobalStyle.jsx).
+Global styles may be configured via [lib/globalStyles.js](lib/globalStyles.js).
 
 ## Authentication
 

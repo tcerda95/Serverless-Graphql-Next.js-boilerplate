@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import Post from '../PropTypes/Post';
 import PostItem from './PostItem';
 import ContainerItem from '../ContainerItem';

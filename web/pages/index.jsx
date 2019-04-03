@@ -5,14 +5,14 @@ import PostList from '../components/PostList';
 
 const Index = () => (
   <Layout title="Posts">
-    <Query query={POSTS} ssr>
+    <Query query={POSTS} fetchPolicy="cache-and-network">
       {QueriedPostList}
     </Query>
   </Layout>
 );
 
 const QueriedPostList = ({ data, loading, error }) => {
-  if (loading) {
+  if (loading && !data) {
     return <h1>Loading...</h1>;
   }
 
